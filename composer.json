@@ -2,9 +2,17 @@
     "name": "graywings/types",
     "type": "library",
     "license": "MIT",
+    "scripts": {
+        "test": "phpunit tests/units --coverage-html coverage-doc "
+    },
     "autoload": {
         "psr-4": {
             "Graywings\\Types\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Graywings\\Types\\Units\\": "tests/units"
         }
     },
     "authors": [
