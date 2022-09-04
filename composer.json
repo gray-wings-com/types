@@ -25,6 +25,10 @@
         "graywings/exceptions": "^0.1.2"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.5"
+        "phpunit/phpunit": "^9.5",
+        "phan/phan": "^5.4",
+        "vimeo/psalm": "^4.27",
+        "phpstan/phpstan": "^1.8",
+        "overtrue/phplint": "^5.3"
     }
 }
