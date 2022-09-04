@@ -29,7 +29,7 @@ class Byte implements Type
     public static function cast(object $target): self
     {
         if (!$target instanceof self) {
-            throw new InvalidArgumentException('A not Byte argument was given.');
+            throw new InvalidArgumentException('A not Byte argument is given.');
         }
         return $target;
     }

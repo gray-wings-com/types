@@ -6,6 +6,7 @@ namespace Graywings\Types\Units\Byte;
 use Graywings\Exceptions\LogicExceptions\DomainException;
 use Graywings\Exceptions\LogicExceptions\InvalidArgumentException;
 use Graywings\Types\Byte\Byte;
+use Graywings\Types\Type;
 use PHPUnit\Framework\TestCase;
 
 class ByteTest extends TestCase
@@ -83,7 +84,7 @@ class ByteTest extends TestCase
     {
         $sample = new Sample();
         self::expectException(InvalidArgumentException::class);
-        self::expectExceptionMessage('A not Byte argument was given.');
+        self::expectExceptionMessage('A not Byte argument is given.');
         Byte::cast($sample);
     }
 
@@ -142,4 +143,24 @@ class ByteTest extends TestCase
     }
 }
 
-class Sample {}
+class Sample implements Type {
+    public function value(): mixed
+    {
+        return '';
+    }
+
+    public static function cast(object $target): Type
+    {
+        return new Byte();
+    }
+
+    public function equals(Type $other): bool
+    {
+        return true;
+    }
+
+    public function __toString(): string
+    {
+        return '';
+    }
+}
