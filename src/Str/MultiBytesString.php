@@ -35,4 +35,9 @@ class MultiBytesString extends Str
     {
         return $this->value === self::cast($other)->value();
     }
+
+    public function length(): int
+    {
+        return mb_strlen($this->value, $this->encoding);
+    }
 }

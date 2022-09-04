@@ -35,4 +35,6 @@ abstract class Str implements Type
             return new AsciiString($value);
         }
     }
+
+    abstract public function length(): int;
 }
