@@ -19,6 +19,9 @@ class ByteTest extends TestCase
         self::assertSame(0x00, $byte->value());
     }
 
+    /**
+     * @return array<int, array{int, string}>
+     */
     public static function byteIntegers(): array
     {
         return [
@@ -42,6 +45,9 @@ class ByteTest extends TestCase
         self::assertSame($byteInteger, $byte->value());
     }
 
+    /**
+     * @return int[][]
+     */
     public static function invalidByteIntegers(): array
     {
         return [

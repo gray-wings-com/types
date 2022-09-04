@@ -34,9 +34,9 @@ class Byte implements Type
         return $target;
     }
 
-    public function equals(object $other): bool
+    public function equals(Type $other): bool
     {
-        return $this->value === $other->value();
+        return $this->value === self::cast($other)->value();
     }
 
     public function __toString(): string
@@ -44,7 +44,7 @@ class Byte implements Type
         return '0x' . str_pad(dechex($this->value), 2, '0', STR_PAD_LEFT);
     }
 
-    public function __clone(): void
+    public function __clone()
     {
     }
 }

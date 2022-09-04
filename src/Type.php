@@ -9,9 +9,7 @@ interface Type
 
     public static function cast(object $target): self;
 
-    public function equals(object $other): bool;
+    public function equals(Type $other): bool;
 
     public function __toString(): string;
-
-    public function __clone(): void;
 }

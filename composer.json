@@ -4,7 +4,14 @@
     "license": "MIT",
     "scripts": {
         "test": "phpunit tests/units --coverage-html coverage-doc",
-        "lint": "phplint"
+        "lint": "phplint",
+        "analyze": [
+            "phan",
+            "phpstan analyze -c .phpstan/phpstan.neon",
+            "psalm"
+        ],
+        "doc": "php tools/phpDocumentor -d src/ -t docs/",
+        "post-install-cmd": "phan --init --init-level=1"
     },
     "autoload": {
         "psr-4": {
