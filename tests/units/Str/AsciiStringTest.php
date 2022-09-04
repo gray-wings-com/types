@@ -11,6 +11,9 @@ use PHPUnit\Framework\TestCase;
 
 class AsciiStringTest extends TestCase
 {
+    /**
+     * @return string[][]
+     */
     public static function stringValue(): array
     {
         return [
@@ -38,6 +41,9 @@ EOF
         self::assertSame($stringValue, $str->value());
     }
 
+    /**
+     * @return string[][]
+     */
     public static function invalidString(): array
     {
         return [
