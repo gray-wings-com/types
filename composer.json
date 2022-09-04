@@ -3,7 +3,8 @@
     "type": "library",
     "license": "MIT",
     "scripts": {
-        "test": "phpunit tests/units --coverage-html coverage-doc "
+        "test": "phpunit tests/units --coverage-html coverage-doc",
+        "lint": "phplint"
     },
     "autoload": {
         "psr-4": {
