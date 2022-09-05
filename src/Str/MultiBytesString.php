@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Graywings\Types\Str;
 
-use Graywings\Exceptions\LogicExceptions\DomainException;
-use Graywings\Exceptions\LogicExceptions\InvalidArgumentException;
+use Graywings\Exceptions\LogicExceptions\LogicInvalidTypeException;
+use Graywings\Exceptions\LogicExceptions\LogicRangeException;
 use Graywings\Types\Type;
 
 class MultiBytesString extends Str
@@ -19,14 +19,14 @@ class MultiBytesString extends Str
             parent::__construct($value);
             $this->encoding = $encoding;
         } else {
-            throw new DomainException('The argument given does not contain multi bytes character.');
+            throw new LogicRangeException('The argument given does not contain multi bytes character.');
         }
     }
 
     public static function cast(object $target): self
     {
         if (!$target instanceof self) {
-            throw new InvalidArgumentException('A not MultiBytesString argument is given.');
+            throw new LogicInvalidTypeException('A not MultiBytesString argument is given.');
         }
         return $target;
     }
