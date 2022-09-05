@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Graywings\Types\Byte;
 
-use Graywings\Exceptions\LogicExceptions\DomainException;
-use Graywings\Exceptions\LogicExceptions\InvalidArgumentException;
+use Graywings\Exceptions\LogicExceptions\LogicInvalidTypeException;
+use Graywings\Exceptions\LogicExceptions\LogicRangeException;
 use Graywings\Types\Type;
 
 class Byte implements Type
@@ -16,7 +16,7 @@ class Byte implements Type
     )
     {
         if ($value > 255 || $value < 0) {
-            throw new DomainException($value . ' is not byte value.');
+            throw new LogicRangeException($value . ' is not byte value.');
         }
         $this->value = $value;
     }
@@ -29,7 +29,7 @@ class Byte implements Type
     public static function cast(object $target): self
     {
         if (!$target instanceof self) {
-            throw new InvalidArgumentException('A not Byte argument is given.');
+            throw new LogicInvalidTypeException('A not Byte argument is given.');
         }
         return $target;
     }

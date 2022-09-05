@@ -11,7 +11,7 @@
             "psalm"
         ],
         "doc": "php tools/phpDocumentor -d src/ -t docs/",
-        "post-install-cmd": "phan --init --init-level=1"
+        "post-install-cmd": "phan --init --init-overwrite --init-level=1"
     },
     "autoload": {
         "psr-4": {
@@ -30,7 +30,7 @@
         }
     ],
     "require": {
-        "graywings/exceptions": "^0.1.2"
+        "graywings/exceptions": "^1.0.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",

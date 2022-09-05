@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Graywings\Types\Str;
 
-use Graywings\Exceptions\LogicExceptions\DomainException;
-use Graywings\Exceptions\LogicExceptions\InvalidArgumentException;
+use Graywings\Exceptions\LogicExceptions\LogicInvalidTypeException;
+use Graywings\Exceptions\LogicExceptions\LogicRangeException;
 use Graywings\Types\Type;
 
 class AsciiString extends Str
@@ -16,14 +16,14 @@ class AsciiString extends Str
         if (strlen($value) === mb_strlen($value)) {
             parent::__construct($value);
         } else {
-            throw new DomainException('The argument given is not only ascii character.');
+            throw new LogicRangeException('The argument given is not only ascii character.');
         }
     }
 
     public static function cast(object $target): self
     {
         if (!$target instanceof self) {
-            throw new InvalidArgumentException('A not AsciiString argument is given.');
+            throw new LogicInvalidTypeException('A not AsciiString argument is given.');
         }
         return $target;
     }
